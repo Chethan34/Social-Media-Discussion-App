@@ -1,7 +1,7 @@
 const paths ={
     home() {
         return '/'
-
+//path finders made easier to redirect to different pages.
     },
     topicShow(topicSlug: string){
         return `/topics/${topicSlug}`;

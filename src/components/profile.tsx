@@ -1,5 +1,5 @@
 'use client';
-
+//signed in validation
 import { useSession } from "next-auth/react";
 
 export default function Profile(){
