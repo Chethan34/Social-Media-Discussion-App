@@ -1,14 +1,16 @@
 import type {Comment} from '@prisma/client';
 import {db} from '@/db';
+import {cache} from 'react';
 
 export type CommentWithAuthor = Comment & {
     user: {name:string | null; image: string | null};
 };
 
-export function fetchCommentsByPostId(
+export const fetchCommentsByPostId = cache((
     postId:string
-):Promise<CommentWithAuthor[]> 
-{
+):Promise<CommentWithAuthor[]> => { 
+    console.log('Making a query!'); //used to multiple db queries used cache memoization
+
     return db.comment.findMany({
         where: {postId},
         include: {
@@ -20,5 +22,7 @@ export function fetchCommentsByPostId(
             }
         }
     })
-}
+});
+
+//request memozization ->
 
