@@ -28,6 +28,9 @@ export async function createTopic(
     formState:CreateTopicFormState, 
     formData:FormData
     ): Promise<CreateTopicFormState>{
+
+        // await new Promise(resolve=> setTimeout(resolve, 2500)) //added loading spinners.
+
     const result = createTopicSchema.safeParse({ //safeParse of zod formValidation
         name: formData.get('name'),
         description: formData.get('description')

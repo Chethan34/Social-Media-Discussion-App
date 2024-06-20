@@ -12,6 +12,7 @@ import { //nextui imports
 } from '@nextui-org/react';
 
 import * as actions from '@/actions';
+import FormButton from '../common/form-button';
 
 export default function TopicCreateForm(){ //useFormState takes place into picture
     const [formState, action] = useFormState(actions.createTopic, {
@@ -48,7 +49,9 @@ export default function TopicCreateForm(){ //useFormState takes place into pictu
                         </div>
                     ): null}
 
-                    <Button type="submit">Submit</Button>
+                    <FormButton>
+                        Save
+                    </FormButton>
                 </div>
             </form>
         </PopoverContent>
