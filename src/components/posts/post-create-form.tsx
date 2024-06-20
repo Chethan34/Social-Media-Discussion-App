@@ -12,9 +12,12 @@ import {
 import * as actions from '@/actions';
 import FormButton from "../common/form-button";
 
-export default function PostCreateForm(){
+interface PostCreateFormProps{
+    slug:string
+}
+export default function PostCreateForm({slug}:PostCreateFormProps){
     const [formState, action] = useFormState(
-        actions.createPost,
+        actions.createPost.bind(null,slug),
         {
             errors:{}
         }
@@ -49,22 +52,21 @@ export default function PostCreateForm(){
                       placeholder="Content"
                       />
 
+                      {
+                        formState.errors._form ? (
+                        <div className="rounded p-2 bg-red-200 border border-red-400">
+                            {formState.errors._form.join(', ')}
+                         </div> 
+                        ): null }
+
+
                       <FormButton>Create Post</FormButton>
 
 
 
                     </div>
-
-
-
                 </form>
-
-
-
             </PopoverContent>
-
-
-
         </Popover>
     )
     
