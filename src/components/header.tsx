@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 import {
     Navbar,
@@ -15,12 +16,16 @@ export default async function Header (){
         <Navbar className="shadow mb-6">
 
             <NavbarBrand>
-                <Link href ="/" className="font-bold">Discuss</Link>
+                <Link href ="/" className="font-bold">
+                Discuss
+                </Link>
             </NavbarBrand>
 
             <NavbarContent justify="center">
                 <NavbarItem>
-                    <SearchInput/>
+                     <Suspense>   {/* no warning during build time */}
+                        <SearchInput/>
+                    </Suspense>
                 </NavbarItem>
             </NavbarContent>
 
