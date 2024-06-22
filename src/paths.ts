@@ -1,20 +1,17 @@
-const paths ={
+const paths = {
     home() {
-        return '/'
-//path finders made easier to redirect to different pages.
+      return '/';
     },
-    topicShow(topicSlug: string){
-        return `/topics/${topicSlug}`;
-
+    topicShow(topicSlug: string) {
+      return `/topics/${topicSlug}`;
     },
-    postCreate(topicSlug: string){
-        return `/topic/${topicSlug}/posts/new`;
-
+    postCreate(topicSlug: string) {
+      return `/topics/${topicSlug}/posts/new`;
     },
-    postShow(topicSlug: string, postId: string){
-        return `/topics/${topicSlug}/posts/${postId}`
-
-    }
-};
-
-export default paths;
+    postShow(topicSlug: string, postId: string) {
+      return `/topics/${topicSlug}/posts/${postId}`;
+    },
+  };
+  
+  export default paths;
+  
